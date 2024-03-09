@@ -1,0 +1,35 @@
+{% extends "partials/base.html" %}
+{% block title %}Post details Page {% endblock %}
+{% load crispy_forms_filters %}
+{% block content %}
+    <div class="container">
+        <div class="row mt-5 pt-3">
+            <div class="col-md-8 offset-md-2">
+                <div class="card my-3 shadow">
+                    <div class="card-body">
+                        {% for post in posts %}
+                          
+                        {% endfor %}
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="{{ post.author.profilemodel.image.url }}" alt="profile-image">
+                            </div>
+                            <div class="col-md-8">
+                                <small>{{ post.date_created }}</small>
+                                <span><a class="btn btn-primary btn-sm" href="">Edit</a></span>
+                                <span><a class="btn btn-danger btn-sm" href="">Delete</a></span>
+                                <hr>
+                                <h4>
+                                    {{ post.name }}
+                                </h4>
+                                <p>
+                                    {{ post.content }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
